@@ -16,7 +16,8 @@ public class TempConverterApp {
 		// input
 		// math
 		// output
-
+		intsc.close();
+		linesc.close();
 		System.out.println("\nMe: (every time) 'Rare please.'");
 	}
 
