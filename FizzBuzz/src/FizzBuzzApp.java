@@ -8,15 +8,14 @@ public class FizzBuzzApp {
 		
 		//list<int> i = new list<int>()
 		int i = 0;
-		for (i = 0; i < 16; i++) {
-				if (i/3 == 0) {
+		for (i = 1; i < 16; i++) {
+			if (i%3 == 0 && i%5 == 0) {
+			System.out.println("FizzBuzz");
+				if (i%3 == 0) {
 					System.out.println("Fizz");
 				}
-				else if (i/5 == 0) {
+				else if (i%5 == 0) {
 					System.out.println("Buzz");
-				}
-				else if (i/3 == 0 && i/5 == 0) {
-					System.out.println("FizzBuzz");
 				}
 				else {
 					System.out.println(i);

@@ -57,17 +57,63 @@ public class MyConsole {
 			int result = 0;
 			boolean success = false;
 			while (!success) {
-				System.out.println(prompt);
-				if (!sc.hasNextInt()) {
-					System.out.println("Error - input must be a whole number. Try again.");
+				
+				System.out.print(prompt);
+				if (sc.hasNextInt()) {
+					result = Integer.parseInt(sc.nextLine());
 				}
 				else {
-					result = Integer.parseInt(sc.nextLine());
-					if (result < min || result > max) {
+					System.out.println("Error - input must be a whole number. Try again.");
+					sc.nextLine(); // discard input
+					continue;
+				}
+				if (result < min || result > max) {
 						System.out.println("Error - input must be between "+min+", "+max+". Try again.");
 					}
-				}			
+				else {
+					success = true;
+				}
+
+			}
+			return result;
 		}
-		return result;
-	}
+		
+		public static void printHeader(String header, String sep) {
+			printL(header);
+			String seperatorLine = sep.repeat(header.length());
+			printL(seperatorLine);
+		}
+		
+		public static void printHeader(String header) {
+			printHeader(header, "=");
+		}
+		
+		public static String continueYn(String promptContinue, String yes, String no) {
+			String answer = "";
+			boolean success = false;
+			while (!success) {
+				print(promptContinue);
+				answer = sc.nextLine();
+				if (answer.equalsIgnoreCase("")) {
+					printL("Error - entry is required.");
+				}
+				else if (answer.equalsIgnoreCase(yes) && answer.equalsIgnoreCase(no)) {
+					printL("Error - please enter "+yes+" or "+no+".");
+				}
+				else {
+					success = true;
+				}
+			}
+			return answer;
+		}
+			
+		public static String continueYn() {
+			String choice = continueYn("Continue? (y/n): ", "y", "n");
+			return choice;
+		}
 }
+		
+
+
+
+
