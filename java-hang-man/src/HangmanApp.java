@@ -11,14 +11,27 @@ public class HangmanApp {
 		MyConsole.print("get the write answer or you'll kill an innocient men!\n");
 		MyConsole.print("Welcome to the Hangman App\n");
 		
+		
 		String theWord = "taco"; 
 		ArrayList<Character> someWords = new ArrayList<>();
 		int buzzWrong = 0;
 		
 		for (int i =0; i < theWord.length(); i++) {
 			someWords.add('_');
+			
 		}
-
+		
+		MyConsole.printL(getTheHangedMan(0));
+		MyConsole.printL(" ");
+		MyConsole.print("Word: ");
+		for (char c : someWords) {
+			MyConsole.print(c + " ");
+		}
+		MyConsole.printL(" ");
+		
+		System.out.print("Guess a letter: ");
+		char guess = MyConsole.promptString("Guess the letter: ").toLowerCase().charAt(0);
+		System.out.println(guess);
 		sc.close();
 	}
 	static String getTheHangedMan(int buzzWrong) {
