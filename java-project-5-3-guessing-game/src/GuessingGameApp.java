@@ -29,23 +29,23 @@ public class GuessingGameApp {
 					MyConsole.printL(Integer.toString(count));
 					if (dif == 0) {
 						MyConsole.printL("Make a winner method");
-						continue;
+						//continue;
 					}
-					if (dif > -10) {
+					else if (dif < -10) {
 						MyConsole.printL("Not nearly enough! That's way too low pal!");
-						continue;
+						//continue;
 					}
-					if (dif > 10) {
-						MyConsole.printL("Whoa relax! That's way too high buddy!");
-						continue;
-					}
-					if (dif < -10) {
+					else if (dif < 0) {
 						MyConsole.printL("Close! But too low yet!");
-						continue;
+						//continue;
 					}
-					if (dif < 10) {
+					else if (dif > 10) {
+						MyConsole.printL("Whoa relax! That's way too high buddy!");
+						//continue;
+					}
+					else if (dif > 10) {
 						MyConsole.printL("Almost, however, your guess is too high. Try again.");
-						continue;
+						//continue;
 					}
 				}
 

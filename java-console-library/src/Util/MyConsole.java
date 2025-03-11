@@ -1,5 +1,6 @@
 package Util;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class MyConsole {
@@ -110,6 +111,28 @@ public class MyConsole {
 		public static String continueYn() {
 			String choice = continueYn("Continue? (y/n): ", "y", "n");
 			return choice;
+		}
+		
+		public static String promptString(String prompt, List<String> validValues) {
+			String str = "";
+			boolean success = false;
+			while (!success) {
+				str = promptString(prompt);
+//				for (String s: validValues) {
+//					if (s.equalsIgnoreCase(str)) {
+//						success = true;
+//						break;
+//					}
+//				}
+				if (validValues.contains(str)) {
+					success = true;
+				}
+				else {
+					printL("Invalid value. Try again.");
+					//sc.nextLine();
+				}
+			}
+			return str;
 		}
 }
 		
